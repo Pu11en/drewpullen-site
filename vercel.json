@@ -1,6 +1,6 @@
 {
   "rewrites": [
-    { "source": "/brands", "destination": "/brands.html" },
-    { "source": "/((?!data/|public/|drew-pullen-resume|favicon).*)", "destination": "/index.html" }
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/brands", "destination": "/brands.html" }
   ]
 }
