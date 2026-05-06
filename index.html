@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drew Pullen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            accent: '#F0A86C',
+            bg: '#0A0A0F',
+            surface: '#13131A',
+            border: '#1F1F2A',
+            muted: '#52525B',
+            soft: '#71717A',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    /* No animations beyond 150ms */
+    .transition-btn { transition: filter 150ms ease-out; }
+  </style>
+</head>
+<body class="bg-bg text-white font-sans antialiased">
+
+  <!-- ── HERO ── -->
+  <section class="min-h-screen flex items-center justify-center px-6">
+    <div class="w-full max-w-[560px] text-center">
+
+      <!-- Label -->
+      <p class="text-soft text-xs tracking-[0.15em] uppercase mb-6 font-medium">
+        DREW PULLEN × AI
+      </p>
+
+      <!-- Headline -->
+      <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
+        Your brand.<br class="md:hidden">
+        <span class="md:inline">One interface.</span><br class="md:hidden">
+        <span>Zero effort.</span>
+      </h1>
+
+      <!-- Subtext -->
+      <p class="text-soft text-base md:text-lg leading-relaxed mb-8 max-w-prose mx-auto">
+        I built an AI that runs your entire social presence
+        — content, ads, scheduling, and more — while you run the business.
+      </p>
+
+      <!-- Proof bullets -->
+      <div class="flex flex-col items-center gap-2 mb-8 text-sm text-soft">
+        <div class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-accent flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          <span>End-to-end social media automation</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-accent flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          <span>Custom AI agents for real businesses</span>
+        </div>
+      </div>
+
+      <!-- Resume link -->
+      <a href="/public/drew-pullen-resume.pdf" class="inline-block text-soft text-sm hover:text-white transition-btn mb-8">
+        Resume →
+      </a>
+
+      <!-- CTA -->
+      <a href="#book" class="inline-block bg-accent text-white font-medium px-8 py-3.5 rounded-full transition-btn hover:brightness-90 text-base">
+        Book a Call →
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ── BOOKING ── -->
+  <section id="book" class="min-h-screen flex items-center justify-center px-6">
+    <div class="w-full max-w-[480px] text-center">
+
+      <h2 class="text-2xl font-semibold mb-8">Pick a time</h2>
+
+      <!-- Google Calendar Appointment Schedule embed -->
+      <!-- REPLACE src with your Google Calendar booking page URL -->
+      <!-- Get it at calendar.google.com → Create → Appointment schedule → copy booking page link -->
+      <div class="rounded-xl overflow-hidden" style="height:600px">
+        <iframe
+          src="https://calendar.google.com/calendar/appointments/schedules/REPLACE_ME"
+          width="100%"
+          height="100%"
+          frameborder="0"
+          title="Schedule a call">
+        </iframe>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="border-t border-border py-8 px-6">
+    <div class="max-w-[560px] mx-auto text-center">
+
+      <!-- Trust markers -->
+      <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-8 text-sm text-muted mb-6">
+        <span>No agencies</span>
+        <span class="hidden sm:inline text-border">•</span>
+        <span>No templates</span>
+        <span class="hidden sm:inline text-border">•</span>
+        <span>No lock-in</span>
+      </div>
+
+      <!-- Copyright -->
+      <p class="text-xs text-muted">
+        &copy; 2025 Drew Pullen
+      </p>
+
+    </div>
+  </footer>
+
+</body>
+</html>
