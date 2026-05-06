@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brands — Drew Pullen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            accent:  '#F0A86C',
+            'acc-soft': 'rgba(240,168,108,0.12)',
+            bg:      '#0D0C0A',
+            surface: '#161512',
+            border:  '#2A2824',
+            mute:    '#8A8680',
+            soft:    '#B8B4AE',
+          },
+          fontFamily: {
+            sans:  ['Outfit', 'system-ui', 'sans-serif'],
+            mono:  ['JetBrains Mono', 'monospace'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    /* ── nav active state ── */
+    .nav-active { color: #F0A86C !important; }
+
+    /* ── staggered entrance ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(12px);
+      animation: reveal 0.7s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+    }
+    .reveal-1 { animation-delay: 0.1s; }
+    .reveal-2 { animation-delay: 0.2s; }
+    .reveal-3 { animation-delay: 0.35s; }
+    .reveal-4 { animation-delay: 0.5s; }
+    @keyframes reveal {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── ad cards enter with stagger on view ── */
+    .ad-card { opacity: 0; transform: translateY(16px); }
+    .ad-card.visible {
+      animation: cardIn 0.6s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+    }
+    @keyframes cardIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── double-bezel card architecture ── */
+    .bezel-outer {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 20px;
+      padding: 6px;
+      transition: border-color 0.3s cubic-bezier(0.32,0.72,0,1),
+                  box-shadow 0.3s cubic-bezier(0.32,0.72,0,1);
+    }
+    .bezel-outer:hover {
+      border-color: rgba(240,168,108,0.25);
+      box-shadow: 0 8px 40px -12px rgba(240,168,108,0.08);
+    }
+    .bezel-inner {
+      background: #12120E;
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .bezel-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #0a0a0b;
+      transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+    }
+    .bezel-outer:hover .bezel-inner img {
+      transform: scale(1.03);
+    }
+
+    /* ── tactile button ── */
+    .btn-tactile {
+      transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1),
+                  filter 0.15s ease-out;
+    }
+    .btn-tactile:active { transform: scale(0.97); }
+
+    /* ── section divider ── */
+    .section-hairline {
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(255,255,255,0.06) 20%, rgba(255,255,255,0.06) 80%, transparent);
+    }
+  </style>
+</head>
+<body class="bg-bg text-soft font-sans antialiased">
+
+  <!-- ── NAV ── -->
+  <nav class="fixed top-0 inset-x-0 z-50 border-b border-white/[0.04] bg-bg/80 backdrop-blur-xl">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 flex items-center justify-between h-16">
+      <a href="/" class="text-sm font-semibold tracking-tight text-white">Drew Pullen</a>
+      <div class="flex items-center gap-8">
+        <a href="/brands" class="nav-active text-sm">Brands</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── BRANDS HEADER ── -->
+  <section class="pt-32 pb-16 md:pt-40 md:pb-20">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
+      <!-- eyebrow -->
+      <p class="reveal reveal-1 font-mono text-[10px] tracking-[0.18em] uppercase text-mute mb-6">
+        Client Work
+      </p>
+      <!-- headline — left-aligned, not centered -->
+      <h1 class="reveal reveal-2 text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight leading-[1.05] text-white max-w-[24ch]">
+        Real brands,<br>automated by AI.
+      </h1>
+      <p class="reveal reveal-3 text-sm sm:text-base text-mute leading-relaxed max-w-[48ch] mt-4">
+        Every image below was generated, approved, and scheduled by the same pipeline we build for clients.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── BRAND: Island Splash (text left / grid right) ── -->
+  <section class="py-20 md:py-28" id="island-splash">
+    <div class="section-hairline mb-20 md:mb-28"></div>
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 grid md:grid-cols-[1fr_2fr] gap-12 md:gap-20 items-start">
+
+      <!-- LEFT: brand identity -->
+      <div class="md:sticky md:top-24">
+        <p class="font-mono text-[10px] tracking-[0.18em] uppercase text-mute mb-4">Island Splash</p>
+        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight text-white mb-3">
+          Florida Caribbean Juice
+        </h2>
+        <p class="text-sm text-mute leading-relaxed max-w-[32ch]">
+          Fun, laid-back, tropical. Family recipes bottled for island time.
+          Seven flavors, seven moods, one AI pipeline.
+        </p>
+        <div class="mt-6 flex items-center gap-3 text-xs text-mute font-mono">
+          <span id="is-count" class="text-accent">—</span> approved ads
+        </div>
+      </div>
+
+      <!-- RIGHT: ad grid -->
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5" id="is-grid">
+        <div class="col-span-full text-sm text-mute py-8">Loading…</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── BRAND: Cinco H Ranch (grid left / text right) ── -->
+  <section class="py-20 md:py-28" id="cinco-h-ranch">
+    <div class="section-hairline mb-20 md:mb-28"></div>
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 grid md:grid-cols-[2fr_1fr] gap-12 md:gap-20 items-start">
+
+      <!-- LEFT: ad grid -->
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5 md:order-1 order-2" id="ch-grid">
+        <div class="col-span-full text-sm text-mute py-8">Loading…</div>
+      </div>
+
+      <!-- RIGHT: brand identity -->
+      <div class="md:order-2 order-1 md:sticky md:top-24">
+        <p class="font-mono text-[10px] tracking-[0.18em] uppercase text-mute mb-4">Cinco H Ranch</p>
+        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight text-white mb-3">
+          Texas Tallow Skincare
+        </h2>
+        <p class="text-sm text-mute leading-relaxed max-w-[32ch]">
+          Honest, no fluff. Historic homestead recipes built for real life.
+          Small-batch, 100% natural ingredients from the ranch.
+        </p>
+        <div class="mt-6 flex items-center gap-3 text-xs text-mute font-mono">
+          <span id="ch-count" class="text-accent">—</span> approved ads
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="py-24 md:py-32">
+    <div class="section-hairline mb-20 md:mb-28"></div>
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 text-center">
+      <p class="text-mute text-sm mb-6">Want your brand here?</p>
+      <a href="/#book" class="btn-tactile inline-flex items-center gap-2 bg-accent text-bg font-semibold px-8 py-4 rounded-lg hover:brightness-105">
+        Book a Call
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="border-t border-border py-10 px-6">
+    <div class="max-w-[1400px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-mute font-mono">
+        <span>No agencies</span>
+        <span class="text-border">|</span>
+        <span>No templates</span>
+        <span class="text-border">|</span>
+        <span>No lock-in</span>
+      </div>
+      <p class="text-xs text-mute">&copy; 2025 Drew Pullen</p>
+    </div>
+  </footer>
+
+<script>
+// ── Load ads for a brand ──
+async function loadBrandAds(slug, gridId, countId) {
+  const grid = document.getElementById(gridId);
+  const countEl = document.getElementById(countId);
+  try {
+    const resp = await fetch(`/data/ads/${slug}.json`);
+    if (!resp.ok) throw new Error('Not found');
+    const ads = await resp.json();
+
+    countEl.textContent = ads.length;
+
+    if (ads.length === 0) {
+      grid.innerHTML = '<div class="col-span-full text-sm text-mute py-12">No approved ads yet.</div>';
+      return;
+    }
+
+    grid.innerHTML = '';
+
+    ads.forEach((ad, i) => {
+      const card = document.createElement('div');
+      card.className = 'ad-card bezel-outer';
+      card.innerHTML = `
+        <div class="bezel-inner">
+          <img
+            src="/public/ads/${slug}/${ad.filename}"
+            alt="${ad.product_name || 'Ad'}"
+            loading="lazy"
+            onerror="this.style.padding='2rem';this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 500%22><rect fill=%22%2312120E%22 width=%22400%22 height=%22500%22/><text fill=%22%238A8680%22 x=%22200%22 y=%22260%22 text-anchor=%22middle%22 font-family=%22sans-serif%22 font-size=%2212%22>Image</text></svg>'"
+          >
+        </div>
+      `;
+      grid.appendChild(card);
+
+      // Staggered reveal (fallback via IntersectionObserver)
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            entry.target.style.animationDelay = `${i * 80}ms`;
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      observer.observe(card);
+    });
+  } catch (e) {
+    grid.innerHTML = `<div class="col-span-full text-sm text-mute py-8">Could not load ads.</div>`;
+    countEl.textContent = '—';
+  }
+}
+
+loadBrandAds('island-splash', 'is-grid', 'is-count');
+loadBrandAds('cinco-h-ranch', 'ch-grid', 'ch-count');
+</script>
+
+</body>
+</html>
