@@ -239,7 +239,7 @@ async function loadBrandAds(slug, gridId, countId) {
       card.innerHTML = `
         <div class="bezel-inner">
           <img
-            src="/public/ads/${slug}/${ad.filename}"
+            src="/ads/${slug}/${ad.filename}"
             alt="${ad.product_name || 'Ad'}"
             loading="lazy"
             onerror="this.style.padding='2rem';this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 500%22><rect fill=%22%2312120E%22 width=%22400%22 height=%22500%22/><text fill=%22%238A8680%22 x=%22200%22 y=%22260%22 text-anchor=%22middle%22 font-family=%22sans-serif%22 font-size=%2212%22>Image</text></svg>'"
