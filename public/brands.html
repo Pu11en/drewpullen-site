@@ -147,9 +147,6 @@
           Fun, laid-back, tropical. Family recipes bottled for island time.
           Seven flavors, seven moods, one AI pipeline.
         </p>
-        <div class="mt-6 flex items-center gap-3 text-xs text-mute font-mono">
-          <span id="is-count" class="text-accent">—</span> approved ads
-        </div>
       </div>
 
       <!-- RIGHT: ad grid -->
@@ -180,9 +177,6 @@
           Honest, no fluff. Historic homestead recipes built for real life.
           Small-batch, 100% natural ingredients from the ranch.
         </p>
-        <div class="mt-6 flex items-center gap-3 text-xs text-mute font-mono">
-          <span id="ch-count" class="text-accent">—</span> approved ads
-        </div>
       </div>
 
     </div>
@@ -216,15 +210,12 @@
 
 <script>
 // ── Load ads for a brand ──
-async function loadBrandAds(slug, gridId, countId) {
+async function loadBrandAds(slug, gridId) {
   const grid = document.getElementById(gridId);
-  const countEl = document.getElementById(countId);
   try {
     const resp = await fetch(`/data/ads/${slug}.json`);
     if (!resp.ok) throw new Error('Not found');
     const ads = await resp.json();
-
-    countEl.textContent = ads.length;
 
     if (ads.length === 0) {
       grid.innerHTML = '<div class="col-span-full text-sm text-mute py-12">No approved ads yet.</div>';
@@ -262,12 +253,11 @@ async function loadBrandAds(slug, gridId, countId) {
     });
   } catch (e) {
     grid.innerHTML = `<div class="col-span-full text-sm text-mute py-8">Could not load ads.</div>`;
-    countEl.textContent = '—';
   }
 }
 
-loadBrandAds('island-splash', 'is-grid', 'is-count');
-loadBrandAds('cinco-h-ranch', 'ch-grid', 'ch-count');
+loadBrandAds('island-splash', 'is-grid');
+loadBrandAds('cinco-h-ranch', 'ch-grid');
 </script>
 
 </body>
